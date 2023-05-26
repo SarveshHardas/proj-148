@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+</head>
+
+<body>
+  <a-scene background="color:black">
+
+    <a-camera position="0 0 25"></a-camera>
+
+    <!-------------------------------------------Asset Management------------------------------------------->
+    <a-assets timeout="10000">
+        <a-assets-item id="man" src="./models/man/scene.gltf"></a-assets-item>
+        <a-assets-item id="dog" src="./models/dog/scene.gltf"></a-assets-item>
+        <a-assets-item id="light" src="./models/light/scene.gltf"></a-assets-item>
+        <a-assets-item id="bench" src="./models/bench/scene.gltf"></a-assets-item>
+    </a-assets>
+    <!-------------------------------------Lights in the scene----------------------------------------------->
+    <a-entity light="type:ambient; intensity:0.7; "></a-entity>
+    <a-entity light="type:point; castShadow:true; color:#e6ca14; intensity:2.35"
+              position = "-5.92951 8.39487 1.29438">
+        </a-entity>
+    
+    
+    <!-------------------------------------Plane----------------------------------------->
+
+    <a-plane position="1 -10 1" height="1000" width="1000" rotation="-90 0 0" color="#013220"></a-plane>
+    <a-box position="1 0 0" height="40" width="70" rotation="0 0 0" src="./image/bg1.jpeg" ></a-box>
+
+    <!--------------------------------------GLTF Models----------------------------------------------------------->
+    <a-entity>
+        <a-entity 
+        position="-5 -10 5" 
+        scale="7 7 7" 
+        rotation="0 30 0"
+        gltf-model="#man"
+        shadow="cast:true;">
+        </a-entity>
+    </a-entity>
+      
+    <a-entity>
+        <a-entity scale="0.2 0.2 0.2" 
+                  gltf-model="#dog" 
+                  position="5 -10 7" 
+                  rotation="0 150 0"
+                  shadow="cast:true;">
+        </a-entity>
+    </a-entity>
+
+    <a-entity>
+        <a-entity scale="1 1 1" 
+                  gltf-model="#light" 
+                  position="-12 -10 5" 
+                  shadow="cast:true;">
+        </a-entity>
+    </a-entity>
+
+    <a-entity>
+        <a-entity scale="5 5 5" 
+                  gltf-model="#bench" 
+                  position="17 -10 4"
+                  rotation="0 -20 0" 
+                  shadow="cast:true;">
+        </a-entity>
+    </a-entity>
+    <!--------------------------------------END----------------------------------------------------------->
+  </a-scene>
+</body>
+
+</html>
